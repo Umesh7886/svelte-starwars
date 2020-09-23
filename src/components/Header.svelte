@@ -1,10 +1,15 @@
 <header class="header">
-    <h1>Star Wars Information</h1>
-    <h2>Provided by <span>The Star Wars API</span></h2>
+    <img src="/svelte.png" alt="svelte">
+    <div>
+        <h1>Star Wars Information</h1>
+        <h2>Provided by <span>The Star Wars API</span></h2>
+    </div>
 </header>
 
 <style>
     .header {
+        display: grid;
+        grid-template-columns: .1fr 3.9fr;
         height: 100px;
         width: 100%;
         background-color: var(--backgroundColor);
@@ -14,9 +19,16 @@
         text-align: center;
         font-family: 'Rowdies', cursive;
     }
+
+        .header > img {
+        margin-top: 10px;
+        
+    }
+
     h1 {
         margin-top: 0;
     }
+
     h2 {
         margin-bottom: 0;
     }
