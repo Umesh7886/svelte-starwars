@@ -2,7 +2,6 @@
   import { fade, fly } from "svelte/transition";
   export let showModal = false;
   export let movie;
-  export let enableBlur = false;
   function hide() {
     showModal = false;
   }

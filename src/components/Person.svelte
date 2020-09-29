@@ -8,11 +8,9 @@
 
   let showModal = false;
   let selectedEpisode = 0;
-  let enableBlur = false;
   let toggleModal = ({ target }) => {
     selectedEpisode = target.dataset.episodeid;
     showModal = !showModal;
-    enableBlur = !enableBlur;
   };
 </script>
 
