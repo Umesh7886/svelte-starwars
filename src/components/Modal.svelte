@@ -60,7 +60,8 @@
     width: 1000px;
     height: 900px;
     transform: perspective(250px) rotateX(20deg);
-    animation: scrollCrawl 30s linear infinite;
+    animation: scrollCrawl 20s linear infinite;
+    backface-visibility: hidden;
   }
 
   .crawl:hover {
@@ -70,7 +71,11 @@
     animation-play-state: paused;
   }
 
-  .fade-text {
+  .fade-text > span {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    transform: translate(-20%, -40%);
     animation: fadeText 30s linear forwards;
   }
 
@@ -90,14 +95,19 @@
 
   @keyframes scrollCrawl {
     0% {
-      transform: perspective(250px) rotateX(20deg) translateY(680px);
+      transform: perspective(250px) rotateX(20deg) translateY(630px);
       opacity: 1;
     }
-    50% {
-      opacity: 0.1;
+    80% {
+      opacity: 0.75;
     }
+
+    95% {
+      opacity: 0.25;
+    }
+
     100% {
-      transform: perspective(250px) rotateX(20deg) translateY(-4000px);
+      transform: perspective(250px) rotateX(20deg) translateY(-830px);
       opacity: 0;
     }
   }
@@ -105,7 +115,7 @@
   .close {
     cursor: pointer;
     font-size: 64px;
-    margin-top: -70px;
+    /* margin-top: -70px; */
     position: absolute;
     right: 10px;
     z-index: 1;
@@ -120,7 +130,7 @@
 {#if showModal}
   <div class="backdrop" on:click|self>
     <div class="modal background-image " in:fade out:fade>
-      <h1 class="fade-text">Hover on crawling text to pause it</h1>
+      <h1 class="fade-text"><span>Hover on crawling text to pause it</span></h1>
       <div class="close" on:click={() => hide()}>&times;</div>
       <div class="crawl">
         <h2 class="movie-title">{movie.title}</h2>
