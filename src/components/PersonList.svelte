@@ -143,12 +143,12 @@
         id="left"
         data-link={persons.previous}
         disabled={persons.previous ? '' : 'true'}
-        on:click={loadList}>{persons.previous ? 'Prev 10' : 'Nothing to show'}</button>
+        on:click={loadList}>{persons.previous ? 'Prev 10' : 'No previous to show'}</button>
       <button
         id="right"
         data-link={persons.next}
         disabled={persons.next ? '' : 'true'}
-        on:click={loadList}>{persons.next ? 'Next 10' : 'Nothing to show'}</button>
+        on:click={loadList}>{persons.next ? 'Next 10' : 'Nothing more to show'}</button>
     </div>
   {:catch error}
     <p>Whoops, there was an error! {JSON.stringify(error)}</p>

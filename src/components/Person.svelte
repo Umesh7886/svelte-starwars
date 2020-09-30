@@ -30,7 +30,8 @@
 
   .scroll {
     cursor: pointer;
-    background: linear-gradient(#c3ddff, #dce4f5);
+    /* background: linear-gradient(#c3ddff, #dce4f5); */
+    background: linear-gradient(#c3ddff, #eceef3);
     height: 40px;
     padding: 10px 5px;
     transition: all 0.2s linear;
@@ -74,10 +75,8 @@
       <h3>Loading....</h3>
     {:then movies}
       {#each movies as movie}
-        <div class="scroll">
-          <p on:click={toggleModal} data-episodeid={movie.episode_id}>
-            {movie.title}
-          </p>
+        <div on:click={toggleModal} class="scroll">
+          <p data-episodeid={movie.episode_id}>{movie.title}</p>
           {#if selectedEpisode == movie.episode_id}
             <Modal {showModal} {movie} on:click={toggleModal} />
           {/if}
